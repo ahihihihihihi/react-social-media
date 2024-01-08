@@ -24,7 +24,7 @@ function App() {
 
   const Layout = () => {
     return (
-      <div >
+      <div className='app'>
         <Navbar />
         <div style={{ display: "flex" }}>
           <LeftBar />
