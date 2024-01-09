@@ -15,6 +15,8 @@ import Profile from "./pages/profile/Profile";
 import Navbar from "./components/navbar/Navbar";
 import LeftBar from "./components/leftBar/LeftBar";
 import RightBar from "./components/rightBar/RightBar";
+import { useContext } from 'react';
+import { DarkModeContext } from './context/darkModeContext';
 
 
 
@@ -23,9 +25,16 @@ function App() {
 
   const currentUser = true
 
+  const { darkMode } = useContext(DarkModeContext)
+
+  // console.log(">>>check darkMode: ", darkMode)
+
+
+
   const Layout = () => {
+
     return (
-      <div className='app theme-dark'>
+      <div className={`app theme-${darkMode ? 'light theme' : 'dark theme'}`}>
         <Navbar />
         <div style={{ display: "flex" }}>
           <LeftBar />
@@ -80,6 +89,7 @@ function App() {
       <RouterProvider router={router} />
     </div>
   )
+
 }
 
 export default App;

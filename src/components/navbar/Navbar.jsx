@@ -8,11 +8,15 @@ import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { DarkModeContext } from "../../context/darkModeContext";
+
 
 
 
 const Navbar = () => {
 
+    const { darkMode, toggle } = useContext(DarkModeContext)
 
     return (
         <div className="navbar">
@@ -21,10 +25,10 @@ const Navbar = () => {
                     <span>lamasocial</span>
                 </Link>
                 <HomeOutlinedIcon />
-                {true ? (
-                    <WbSunnyOutlinedIcon />
+                {darkMode ? (
+                    <DarkModeOutlinedIcon onClick={toggle} />
                 ) : (
-                    <DarkModeOutlinedIcon />
+                    <WbSunnyOutlinedIcon onClick={toggle} />
                 )}
                 <GridViewOutlinedIcon />
                 <div className="search">
